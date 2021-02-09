@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "ad_keycloak"
+version = "0.1.0"
+description = "ad_keycloak is a library providing a python api to the Keycloak."
+authors = [
+    "Danila Korobkov <Danila.Korobkov@bki-okb.ru>",
+]
+maintainers = [
+    "Danila Korobkov <Danila.Korobkov@bki-okb.ru>",
+]
+readme = "README.md"
+homepage = "https://jira.ucb.local/projects/UCBS"
+repository = "https://git.ucb.local/projects/AD/repos/ad_keycloak"
+documentation = "https://git.ucb.local/projects/AD/repos/ad_keycloak/browse/README.md"
+
+[tool.poetry.urls]
+bitbucket = "https://git.ucb.local/projects/AD/repos/ad_keycloak"
+bamboo = "https://bamboo.ucb.local/browse/AD-UTAC"
+jira = "https://jira.ucb.local/projects/UCBS"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+attrs = "^20.2"
+docker = { version = "^4.4", optional = true }
+environs = "^8.1"
+factory-boy = { version = "^3.1", optional = true }
+marshmallow = "^3.9"
+uvloop = "^0.14"
+ujson = "^4.0"
+yarl = "^1.6.3"
+python-keycloak = "^0.24.0"
+aiohttp = "^3.7.3"
+
+[tool.poetry.dev-dependencies]
+add-trailing-comma = "^2.0"
+bandit = "^1.6"
+cobertura_clover_transform = "^1.1"
+coverage = "^5.3"
+flake8 = "^3.8"
+isort = "^5.7"
+mypy = "^0.800"
+pylint = "^2.6"
+pytest = "^6.1"
+pytest-asyncio = "^0.14"
+unittest_xml_reporting = "^3.0"
+
+[tool.poetry.extras]
+pytest-plugin = ["docker", "factory-boy", "python-keycloak-client"]
+
+[build-system]
+requires = ["poetry>=1.1.3"]
+build-backend = "poetry.masonry.api"
