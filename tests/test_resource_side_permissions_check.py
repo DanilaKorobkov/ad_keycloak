@@ -26,15 +26,18 @@ def test__permissions_from_token(keycloak: URL):
     public_key = resource_service.public_key()
     public_key = get_wrapped_public_key(public_key)
 
-    options = {
-        "verify_signature": True,
-        "verify_aud": False,
-        "verify_exp": True,
+    optionals = {
+        'require_aud': True,
+        'require_iat': True,
+        'require_exp': True,
+        'require_iss': True,
+        'require_sub': True,
+        'require_jti': True,
     }
-    token_info = keycloak_client.decode_token(
+    token_info = resource_service.decode_token(
         access_token,
         key=public_key,
-        options=options,
+        options=optionals,
     )
 
     permissions = token_info["resource_access"]
