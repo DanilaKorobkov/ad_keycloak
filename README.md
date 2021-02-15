@@ -1,4 +1,4 @@
-[ad_keycloak](https://git.ucb.local/projects/AD/repos/ad_keycloak) is a library providing a python api to the Keycloak.
+[ad_auth](https://git.ucb.local/projects/AD/repos/ad_auth) is a library providing a python api to the Keycloak.
 
 Developed by
 [python 3.8](https://www.python.org) 

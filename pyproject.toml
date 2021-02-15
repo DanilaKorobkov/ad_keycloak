@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "ad_keycloak"
+name = "ad_auth"
 version = "0.1.0"
-description = "ad_keycloak is a library providing a python api to the Keycloak."
+description = "ad_auth is a library providing a python api to the Keycloak."
 authors = [
     "Danila Korobkov <Danila.Korobkov@bki-okb.ru>",
 ]
@@ -10,11 +10,11 @@ maintainers = [
 ]
 readme = "README.md"
 homepage = "https://jira.ucb.local/projects/UCBS"
-repository = "https://git.ucb.local/projects/AD/repos/ad_keycloak"
-documentation = "https://git.ucb.local/projects/AD/repos/ad_keycloak/browse/README.md"
+repository = "https://git.ucb.local/projects/AD/repos/ad_auth"
+documentation = "https://git.ucb.local/projects/AD/repos/ad_auth/browse/README.md"
 
 [tool.poetry.urls]
-bitbucket = "https://git.ucb.local/projects/AD/repos/ad_keycloak"
+bitbucket = "https://git.ucb.local/projects/AD/repos/ad_auth"
 bamboo = "https://bamboo.ucb.local/browse/AD-UTAC"
 jira = "https://jira.ucb.local/projects/UCBS"
 

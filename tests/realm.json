@@ -1,78 +1,62 @@
 {
-  "realm":"demo",
-  "enabled":true,
-  "sslRequired":"external",
-  "registrationAllowed":true,
-  "requiredCredentials":[
+  "realm": "demo",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "requiredCredentials": [
     "password"
   ],
-  "users":[
+  "users": [
     {
-      "username":"user",
-      "enabled":true,
-      "email":"user@mail",
-      "firstName":"userFirstName",
-      "lastName":"userLastName",
-      "credentials":[
-        {
-          "type":"password",
-          "value":"password"
-        }
+      "username": "service-account-ext:client_type:tinkoff",
+      "enabled": true,
+      "emailVerified": false,
+      "serviceAccountClientId": "ext:client_type:tinkoff",
+      "realmRoles": [
+        "offline_access"
       ],
-      "realmRoles":[
-        "user"
-      ],
-      "clientRoles":{
-        "account":[
-          "view-profile",
-          "manage-account"
-        ],
-        "ucb:resource:ad_scores":[
+      "clientRoles": {
+        "ucb:resource:ad_scores": [
           "perm:query.score-1"
         ]
       }
     }
   ],
-  "roles":{
-    "realm":[
+  "roles": {
+    "realm": [
       {
-        "name":"user",
-        "description":"User privileges"
+        "name": "user",
+        "description": "User privileges"
       },
       {
-        "name":"admin",
-        "description":"Administrator privileges"
+        "name": "admin",
+        "description": "Administrator privileges"
       }
     ],
-    "client":{
-      "ucb:resource:ad_scores":[
+    "client": {
+      "ucb:resource:ad_scores": [
         {
-          "name":"perm:query.score-1",
-          "clientRole":true
+          "name": "perm:query.score-1",
+          "clientRole": true
         }
       ]
     }
   },
-  "clients":[
+  "clients": [
     {
       "clientId": "ucb:resource:ad_scores",
       "name": "Ad Scores service name",
       "description": "Ad Scores service description",
       "enabled": true,
-      "bearerOnly": true,
-      "redirectUris": [
-        "/"
-      ]
+      "bearerOnly": true
     },
     {
-      "clientId":"ext:client_type:tinkoff",
-      "enabled":true,
-      "publicClient":true,
-      "directAccessGrantsEnabled":true,
-      "redirectUris": [
-        "/"
-      ],
-      "secret": "bf20271d-9a1d-4ad0-b250-5e6e81a27d33"
+      "clientId": "ext:client_type:tinkoff",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "serviceAccountsEnabled": true,
+      "secret": "bf20271d-9a1d-4ad0-b250-5e6e81a27d33",
+      "standardFlowEnabled": false
     }
   ]
 }
