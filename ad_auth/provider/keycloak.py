@@ -17,7 +17,7 @@ class Keycloak(IIdentityProvider):
 
     def decode(self, token: str) -> None:
         options = {
-            'require_aud': False,
+            'require_aud': True,
             'require_iat': True,
             'require_exp': True,
             'require_iss': True,
