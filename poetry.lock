@@ -705,7 +705,7 @@ pytest-plugin = ["docker", "factory-boy"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "43e25ba209fa6de083dadc30b82d468ec2fdbdf6941893375d7124c54e6031ad"
+content-hash = "dd8fedba2d9f73cafb40891306da6994bba13958f804cdc3de4f1a864a166501"
 
 [metadata.files]
 add-trailing-comma = [

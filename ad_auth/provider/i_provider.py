@@ -1,13 +1,10 @@
 from abc import ABC, abstractmethod
 
-import attr
-
 __all__ = (
     "IIdentityProvider",
 )
 
 
-@attr.s(auto_attribs=True)
 class IIdentityProvider(ABC):
 
     @abstractmethod

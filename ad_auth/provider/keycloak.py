@@ -10,7 +10,7 @@ __all__ = (
 )
 
 
-@attr.s(auto_attribs=True)
+@attr.s(auto_attribs=True, slots=True)
 class Keycloak(IIdentityProvider):
     _open_id: KeycloakOpenID
     _token_data: t.Dict = attr.ib(init=False)

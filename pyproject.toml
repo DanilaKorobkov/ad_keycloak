@@ -27,9 +27,9 @@ factory-boy = { version = "^3.1", optional = true }
 marshmallow = "^3.9"
 uvloop = "^0.14"
 ujson = "^4.0"
-yarl = "^1.6.3"
-python-keycloak = "^0.24.0"
-aiohttp = "^3.7.3"
+yarl = "^1.6"
+python-keycloak = "^0.24"
+aiohttp = "^3.7"
 
 [tool.poetry.dev-dependencies]
 add-trailing-comma = "^2.0"
