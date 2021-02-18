@@ -14,7 +14,7 @@ from keycloak.exceptions import KeycloakConnectionError
 from yarl import URL
 
 pytest_plugins: t.Final = (
-    "ad_auth.pytest_plugin",
+    "ad_keycloak.pytest_plugin",
 )
 
 
@@ -59,19 +59,31 @@ def keycloak(docker_client: DockerClient) -> t.Iterator[URL]:
     )
     with keycloak_docker_container(dsn, docker_client) as url:
         auth_utl = f"{url}/auth/"
-        a = KeycloakOpenID(
-            server_url=auth_utl,
-            client_id="",
-            realm_name="demo",
-        )
-        while True:
-            try:
-                a.public_key()
-            except KeycloakConnectionError:
-                sleep(0.5)
-                continue
-            break
+
+        k = KeycloakOpenID(auth_utl, realm_name="demo", client_id="")
+        wait_setup(k)
+
         yield url
+
+
+@pytest.fixture(scope="session")
+def docker_client() -> t.Iterator[DockerClient]:
+    client = docker.from_env()
+    yield client
+
+    client.close()
+
+
+def wait_setup(keycloak: KeycloakOpenID) -> None:
+    for _ in range(100):
+        try:
+            keycloak.public_key()
+        except KeycloakConnectionError:
+            sleep(0.5)
+        else:
+            return
+
+    raise RuntimeError
 
 
 @contextmanager
@@ -100,14 +112,6 @@ def keycloak_docker_container(
         yield url
     finally:
         container.remove(force=True)
-
-
-@pytest.fixture(scope="session")
-def docker_client() -> t.Iterator[DockerClient]:
-    client = docker.from_env()
-    yield client
-
-    client.close()
 
 
 LOCALHOST: t.Final = "127.0.0.1"
